@@ -1,0 +1,6 @@
+numpy>=1.23
+pandas>=1.5
+matplotlib>=3.6
+sympy>=1.11
+scipy>=1.9
+tqdm>=4.64

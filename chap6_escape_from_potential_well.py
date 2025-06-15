@@ -27,6 +27,19 @@ THIS_DIR = Path(__file__).resolve().parent
 RESULTS_DIR = THIS_DIR / "results"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
+# Double the base font size for clearer text in the saved figure
+_base_font = plt.rcParams.get("font.size", 10.0)
+for key in [
+    "font.size",
+    "axes.titlesize",
+    "axes.labelsize",
+    "xtick.labelsize",
+    "ytick.labelsize",
+    "legend.fontsize",
+]:
+    plt.rcParams[key] = _base_font * 2
+del _base_font
+
 # ---------------------------------------------------------------------
 # 1  Potential, its gradients, and helpers
 # ---------------------------------------------------------------------
@@ -453,6 +466,6 @@ ax3.grid(True, linestyle=":", alpha=0.7)
 ax3.set_title(r"$\Gamma$ vs. $1/(1-\rho_{\mathrm{input}})$")
 
 fig.tight_layout()
-fig.savefig(fig_path, dpi=300)
+fig.savefig(fig_path, dpi=400)
 plt.close(fig)
 print(f"Figure saved ➜ {fig_path}\n--- Finished ---")
